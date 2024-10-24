@@ -36,6 +36,7 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
+
     public function edit(Task $task)
     {         
         return view('tasks.edit', compact('task'));
