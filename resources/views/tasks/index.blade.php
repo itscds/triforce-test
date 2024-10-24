@@ -27,11 +27,11 @@
                                 <td>{{ $task->is_completed ? 'Completed' : 'Pending' }}</td>
                                 <td>
                                     <a href="{{ route('tasks.edit', $task->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="d-inline">
+                                    <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display:inline;" onsubmit="return confirmDelete();">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
-                                    </form>                                    
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>                                   
                                 </td>
                             </tr>
                         @endforeach
@@ -40,4 +40,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+<script>
+    function confirmDelete() {
+        return confirm('Are you sure you want to delete this task?');
+    }
+</script>
 @endsection
