@@ -5,8 +5,9 @@
         <h1 class="mb-4">To-Do List</h1>
 
         <div class="card">
-            <div class="card-header">
+            <div class="card-header d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">Tasks</h5>
+                <a href="{{ route('tasks.create') }}" class="btn btn-primary">Add New Task</a>
             </div>
             <div class="card-body">
                 <table class="table table-striped">

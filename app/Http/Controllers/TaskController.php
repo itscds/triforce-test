@@ -26,11 +26,12 @@ class TaskController extends Controller
             'due_date' => 'required|date',
         ]);
 
-        Task::create([
-            'task_name' => $request->task_name,
-            'is_completed' => false,
-            'due_date' => $request->due_date,
-        ]);
+        $task = new Task();
+        $task->task_name = $request->input('task_name');
+        $task->is_completed = false;
+        $task->due_date  = $request->input('due_date');
+        $task->save();
+        
 
         return redirect()->route('tasks.index');
     }
